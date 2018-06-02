@@ -131,9 +131,12 @@ syn match     rustSigil        display /[&~@*][^)= \t\r\n]/he=e-1,me=e-1
 " This isn't actually correct; a closure with no arguments can be `|| { }`.
 " Last, because the & in && isn't a sigil
 syn match     rustOperator     display "&&\|||"
+syn match     rustAmperstamp     display "&"
+syn match     rustDelimiter     display "{\|}\|(\|)\|<\|>"
 " This is rustArrowCharacter rather than rustArrow for the sake of matchparen,
 " so it skips the ->; see http://stackoverflow.com/a/30309949 for details.
 syn match     rustArrowCharacter display "->"
+syn match     rustFatArrowCharacter display "=>"
 syn match     rustQuestionMark display "?\([a-zA-Z]\+\)\@!"
 
 syn match     rustMacro       '\w\(\w\)*!' contains=rustAssert,rustPanic
